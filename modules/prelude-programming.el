@@ -34,8 +34,8 @@
   (set (make-local-variable 'comment-auto-fill-only-comments) t))
 
 ;; show the name of the current function definition in the modeline
-(require 'which-func)
-(which-function-mode 1)
+;; (require 'which-func)
+;; (which-function-mode 1)
 
 ;; font-lock annotations like TODO in source code
 (require 'hl-todo)
@@ -52,9 +52,9 @@
 ;; (the final optional t sets the *append* argument)
 
 ;; smart curly braces
-(sp-pair "{" nil :post-handlers
-         '(((lambda (&rest _ignored)
-              (crux-smart-open-line-above)) "RET")))
+;; (sp-pair "{" nil :post-handlers
+;;          '(((lambda (&rest _ignored)
+;;               (crux-smart-open-line-above)) "RET")))
 
 ;; enlist a more liberal guru
 (setq guru-warn-only t)

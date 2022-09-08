@@ -74,7 +74,6 @@
     guru-mode
     hl-todo
     imenu-anywhere
-    projectile
     magit
     move-text
     nlinum

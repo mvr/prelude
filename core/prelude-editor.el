@@ -220,10 +220,10 @@
 (setq bookmark-default-file (expand-file-name "bookmarks" prelude-savefile-dir)
       bookmark-save-flag 1)
 
-;; projectile is a project management mode
-(require 'projectile)
-(setq projectile-cache-file (expand-file-name  "projectile.cache" prelude-savefile-dir))
-(projectile-mode t)
+;; ;; projectile is a project management mode
+;; (require 'projectile)
+;; (setq projectile-cache-file (expand-file-name  "projectile.cache" prelude-savefile-dir))
+;; (projectile-mode t)
 
 ;; avy allows us to effectively navigate to visible things
 (require 'avy)
@@ -297,15 +297,15 @@ The body of the advice is in BODY."
                     ,@body))
                commands)))
 
-(advise-commands "indent" (yank yank-pop) after
-  "If current mode is one of `prelude-yank-indent-modes',
-indent yanked text (with prefix arg don't indent)."
-  (if (and (not (ad-get-arg 0))
-           (not (member major-mode prelude-indent-sensitive-modes))
-           (or (derived-mode-p 'prog-mode)
-               (member major-mode prelude-yank-indent-modes)))
-      (let ((transient-mark-mode nil))
-        (yank-advised-indent-function (region-beginning) (region-end)))))
+;; (advise-commands "indent" (yank yank-pop) after
+;;   "If current mode is one of `prelude-yank-indent-modes',
+;; indent yanked text (with prefix arg don't indent)."
+;;   (if (and (not (ad-get-arg 0))
+;;            (not (member major-mode prelude-indent-sensitive-modes))
+;;            (or (derived-mode-p 'prog-mode)
+;;                (member major-mode prelude-yank-indent-modes)))
+;;       (let ((transient-mark-mode nil))
+;;         (yank-advised-indent-function (region-beginning) (region-end)))))
 
 ;; abbrev config
 (add-hook 'text-mode-hook 'abbrev-mode)
@@ -356,7 +356,7 @@ indent yanked text (with prefix arg don't indent)."
 (add-hook 'compilation-filter-hook #'prelude-colorize-compilation-buffer)
 
 ;; enable Prelude's keybindings
-(prelude-mode t)
+;; (prelude-mode t)
 
 ;; supercharge your undo/redo with undo-tree
 (require 'undo-tree)
